@@ -1,0 +1,44 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build SFML exe",
+            "type": "shell",
+            "command": "g++",
+            "args": [
+                "-std=c++17",
+                "-g",
+                "D:\\AHD Projects\\Cpp Project\\MySFMLTest3\\main.cpp",
+                "-o",
+                "D:\\AHD Projects\\Cpp Project\\MySFMLTest3\\MySFMLTest3.exe",
+                "-I", "C:\\SFML-3.1.0\\include",
+                "-L", "C:\\SFML-3.1.0\\lib",
+                "-lsfml-graphics",
+                "-lsfml-window",
+                "-lsfml-system"
+                ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": ["$gcc"],
+            "detail": "Compile SFML project to exe"
+        },
+        {
+            "label": "build and run SFML",
+            "type": "shell",
+            "command": "${fileDirname}\\${fileBasenameNoExtension}.exe",
+            "dependsOn": ["build SFML exe"],
+            "group": {
+                "kind": "test",
+                "isDefault": true
+            },
+            "presentation": {
+                "reveal": "always",
+                "panel": "new"
+            },
+            "problemMatcher": []
+        }
+    ]
+}
+ 
